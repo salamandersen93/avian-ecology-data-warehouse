@@ -65,6 +65,11 @@ observer_id TEXT
 duration_minutes INT
 effort_distance_km INT
 
+Dimension Table: Taxonomy
+common_name TEXT PRIMARY KEY
+scientific_name TEXT
+taxonomic_order TEXT
+
 The model was constructed by executing the following steps:
 1. NASS/USDA data acquistion script execution to output two files: Farms.csv and FIPS.json (input for ETL - two data source types).
 2. A .csv file for each of the 17 species listed above. An eBird data acquisition script was run to append, clean, and output a merged_cleaned.csv file.
@@ -136,6 +141,13 @@ observation_date: date of observation via eBird
 observer_id: identifier of the birdwatcher who logged the sighting on eBird
 duration_minutes: duration of the eBird sampling event (hours spent by the birdwatcher/observer on that sampling event)
 effort_distance_km: distance traveled during the eBird sampling event by the birdwatcher/observer
+  
+  
+<h3> Taxonomy </h3>
+  
+common_name: common name (non-scientific) of the species observed
+scientific_name: scientific (latin) name of the species observed
+taxonomic_order: biological classification, taxonomic classification
   
 <h3> References and Acknowledgements </h3>
   eBird - cornell lab of ornithology: eBird.org

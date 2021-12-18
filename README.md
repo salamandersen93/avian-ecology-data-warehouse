@@ -29,7 +29,7 @@ Fact Table: Observation_table
 - FIPS_code INT
 - observation_count TEXT
 - sampling_event_id TEXT
-# note about observation_count - while in an analysis this would be ideal as an integer,
+note about observation_count - while in an analysis this would be ideal as an integer,
 there are cases where the reporter of the sighting could not define ane exact count of a species
 due to a large flock or uncertainty if the same bird was seen multiple times. These are reported as 'X'.
 Rather than attempt to impute during this dataset construction, I would leave this imputation up to
@@ -53,7 +53,7 @@ Dimension Table: Farm_table
 -y17_M080 TEXT
 -y17_M081 TEXT
 -y17_M082 TEXT
-# note - variable meaning described in data dictionary, too long for column headers
+note - variable meaning described in data dictionary, too long for column headers
 
 Dimension Table: Sampling_event_metadata_table
 sampling_event_id TEXT PRIMARY KEY

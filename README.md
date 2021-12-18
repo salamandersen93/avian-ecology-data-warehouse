@@ -133,21 +133,21 @@ county: county associated with FIPS code<br>
 state: state associated with FIPS code<br>
   
 <h3> Sampling Event Metadata </h3>
-sampling_event_id: value from eBird, unique identifier for checklist/sampling event
-locality: value from eBird, aka a 'hotspot', is a location defined in eBird. can be a park, hiking trail, farm, forest, roadside area, beach, etc.
-latitude: latitude
-longitude: longitude
-observation_date: date of observation via eBird
-observer_id: identifier of the birdwatcher who logged the sighting on eBird
-duration_minutes: duration of the eBird sampling event (hours spent by the birdwatcher/observer on that sampling event)
-effort_distance_km: distance traveled during the eBird sampling event by the birdwatcher/observer
+sampling_event_id: value from eBird, unique identifier for checklist/sampling event <br>
+locality: value from eBird, aka a 'hotspot', is a location defined in eBird. can be a park, hiking trail, farm, forest, roadside area, beach, etc. <br>
+latitude: latitude <br>
+longitude: longitude <br>
+observation_date: date of observation via eBird <br>
+observer_id: identifier of the birdwatcher who logged the sighting on eBird <br>
+duration_minutes: duration of the eBird sampling event (hours spent by the birdwatcher/observer on that sampling event) <br>
+effort_distance_km: distance traveled during the eBird sampling event by the birdwatcher/observer <br>
   
   
 <h3> Taxonomy </h3>
   
-common_name: common name (non-scientific) of the species observed
-scientific_name: scientific (latin) name of the species observed
-taxonomic_order: biological classification, taxonomic classification
+common_name: common name (non-scientific) of the species observed <br>
+scientific_name: scientific (latin) name of the species observed <br>
+taxonomic_order: biological classification, taxonomic classification <br>
   
 <h3> References and Acknowledgements </h3>
   eBird - cornell lab of ornithology: eBird.org

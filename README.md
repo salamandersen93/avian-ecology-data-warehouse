@@ -97,3 +97,47 @@ If the data size was increased by 100x (as proposed in project write-up scenario
 If the pipelines were run on a daily basis at 7AM (as proposed in the project write-up scenario): This is not relevant for this scenario, however if eBird API data were theoretically to be acquired daily at 7AM, an Airflow DAG could be set up to run the API calls separately and feed the data into the eBird_data_acquisition script.
 
 If the database needed to be acessed by 100+ people (as proposed in project write-up scenario): Launch on RA3.16xlarge, RA3.4xlarge, or RA3.xlplus nodes in Redshift
+
+<h2> Data Dictionary </h2>
+
+<h3> Observations </h3
+observation_id:  automatically incremented primary key value <br>
+common_name common: (non-scientific) name of species observed <br>
+FIPS_code: FIPS code (geopgraphic information data) <br>
+observation_date: date of eBird species observation <br>
+sampling_event_id: unique identifier for sampling event (aka eBird checklist - can include multiple spcies, at a given location and date/time) <br>
+  
+<h3> Farms </h3>
+FIPS_code: FIPS code (geographic information data)<br>
+y17_M059:	Acres of Land in Farms as Percent of Land Area in Acres: 2017<br>
+y17_M061:	Acres of Irrigated Land as Percent of Land in Farms Acreage: 2017<br>
+y17_M063:	Acres of Total Cropland as Percent of Land Area in Acres: 2017<br>
+y17_M066:	Acres of Harvested Cropland as Percent of Land in Farms Acreage: 2017<br>
+y17_M068:	Acres of All Types of Pastureland as Percent of Land in Farms Acreage: 2017<br>
+y17_M070:	Acres Enrolled in the Conservation Reserve, Wetlands Reserve, Farmable Wetlands, or Conservation Reserve Enhancement Programs as Percent of Land in Farms Acreage: 2017<br>
+y17_M078:	Acres of Cropland and Pastureland Treated with Animal Manure as Percent of Total Cropland Acreage: 2017<br>
+y17_M079:	Acres Treated with Chemicals to Control Insects as Percent of Total Cropland Acreage: 2017<br>
+y17_M080:	Acres Treated with Chemicals to Control Nematodes as Percent of Total Cropland Acreage: 2017<br>
+y17_M081:	Acres of Crops Treated with Chemicals to Control Weeds, Grass, or Brush as Percent of Total Cropland Acreage: 2017<br>
+y17_M082:	Acres of Crops Treated with Chemicals to Control Growth, Thin Fruit, Ripen, or Defoliate as Percent of Total Cropland Acreage: 2017<br>
+y17_M083:	Acres Treated with Chemicals to Control Disease in Crops and Orchards as Percent of Total Cropland Acreage: 2017<br>
+
+<h3> FIPS </h3>
+FIPS_code: FIPS code (geographic information data)<br>
+county: county associated with FIPS code<br>
+state: state associated with FIPS code<br>
+  
+<h3> Sampling Event Metadata </h3>
+sampling_event_id: value from eBird, unique identifier for checklist/sampling event
+locality: value from eBird, aka a 'hotspot', is a location defined in eBird. can be a park, hiking trail, farm, forest, roadside area, beach, etc.
+latitude: latitude
+longitude: longitude
+observation_date: date of observation via eBird
+observer_id: identifier of the birdwatcher who logged the sighting on eBird
+duration_minutes: duration of the eBird sampling event (hours spent by the birdwatcher/observer on that sampling event)
+effort_distance_km: distance traveled during the eBird sampling event by the birdwatcher/observer
+  
+<h3> References and Acknowledgements </h3>
+  eBird - cornell lab of ornithology: eBird.org
+  NASS/USDA: NASS.usda.gov
+  

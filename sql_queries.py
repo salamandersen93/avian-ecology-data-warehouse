@@ -32,13 +32,13 @@ DURATION_MINUTES FLOAT, EFFORT_DISTANCE_KM FLOAT
 #staging farms
 staging_farms_table_create = ("""
 CREATE TABLE IF NOT EXISTS staging_farms_table (
-FIPS INT, y17_M059_classRange text, y17_M061_classRange text,
-y17_M063_classRange text, y17_M066_classRange text,
-y17_M068_classRange text, y17_M069_classRange text,
-y17_M070_classRange text, y17_M078_classRange text,
-y17_M079_classRange text, y17_M080_classRange text,
-y17_M081_classRange text, y17_M082_classRange text,
-y17_M083_classRange text
+FIPS INT, y17_M059 int, y17_M061 int,
+y17_M063 int, y17_M066 int,
+y17_M068 int, y17_M069 int,
+y17_M070 int, y17_M078 int,
+y17_M079 int, y17_M080 int,
+y17_M081 int, y17_M082 int,
+y17_M083 int
 )
 """)
 
@@ -54,9 +54,9 @@ common_name text, FIPS_code int, observation_count text, sampling_event_id text
 # dimension table - farm metadata
 farm_data_table_create = ("""
 CREATE TABLE IF NOT EXISTS farm_data_table (
-FIPS_code text PRIMARY KEY, y17_M059 text, y17_M061 text, y17_M063 text,
-y17_M066 text, y17_M068 text, y17_M070 text, y17_M078 text, y17_M079 text,
-y17_M080 text, y17_M081 text, y17_M082 text, y17_M083 text
+FIPS_code text PRIMARY KEY, y17_M059 int, y17_M061 int, y17_M063 int,
+y17_M066 int, y17_M068 int, y17_M070 int, y17_M078 int, y17_M079 int,
+y17_M080 int, y17_M081 int, y17_M082 int, y17_M083 int
 )
 """)
 
@@ -118,6 +118,16 @@ staging_FIPS_copy = ("""
     truncatecolumns;
 """).format(config['S3']['FIPS_DATA'],config['IAM_ROLE']['ARN'])
 
+# copying from redshift to s3  -- note: this is post-project
+unload_redshift = ("""
+unload ('select * from observation_table') 
+to 's3://capstone-project-ebird-nass/unload/' iam_role 'arn:aws:iam::166807100329:role/myRedshiftRole'
+parallel off
+header
+delimiter as ','
+CSV 
+""")
+
 # FINAL TABLES
 observation_table_insert = ("""INSERT INTO observation_table (
 common_name, FIPS_code, observation_count, sampling_event_id)
@@ -135,13 +145,13 @@ y17_M079, y17_M080,
 y17_M081, y17_M082,
 y17_M083)
 SELECT 
-FIPS, y17_M059_classRange, y17_M061_classRange,
-y17_M063_classRange, y17_M066_classRange,
-y17_M068_classRange,
-y17_M070_classRange, y17_M078_classRange,
-y17_M079_classRange, y17_M080_classRange,
-y17_M081_classRange, y17_M082_classRange,
-y17_M083_classRange
+FIPS, y17_M059, y17_M061,
+y17_M063, y17_M066,
+y17_M068,
+y17_M070, y17_M078,
+y17_M079, y17_M080,
+y17_M081, y17_M082,
+y17_M083
 FROM staging_farms_table
 """)
 

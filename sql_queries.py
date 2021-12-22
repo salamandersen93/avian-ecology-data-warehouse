@@ -32,13 +32,13 @@ DURATION_MINUTES FLOAT, EFFORT_DISTANCE_KM FLOAT
 #staging farms
 staging_farms_table_create = ("""
 CREATE TABLE IF NOT EXISTS staging_farms_table (
-FIPS INT, y17_M059 int, y17_M061 int,
-y17_M063 int, y17_M066 int,
-y17_M068 int, y17_M069 int,
-y17_M070 int, y17_M078 int,
-y17_M079 int, y17_M080 int,
-y17_M081 int, y17_M082 int,
-y17_M083 int
+FIPS INT, y17_M059_valueNumeric float, y17_M061_valueNumeric float,
+y17_M063_valueNumeric float, y17_M066_valueNumeric float,
+y17_M068_valueNumeric float,
+y17_M070_valueNumeric float, y17_M078_valueNumeric float,
+y17_M079_valueNumeric float, y17_M080_valueNumeric float,
+y17_M081_valueNumeric float, y17_M082_valueNumeric float,
+y17_M083_valueNumeric float
 )
 """)
 
@@ -145,13 +145,13 @@ y17_M079, y17_M080,
 y17_M081, y17_M082,
 y17_M083)
 SELECT 
-FIPS, y17_M059, y17_M061,
-y17_M063, y17_M066,
-y17_M068,
-y17_M070, y17_M078,
-y17_M079, y17_M080,
-y17_M081, y17_M082,
-y17_M083
+FIPS, y17_M059_valueNumeric, y17_M061_valueNumeric,
+y17_M063_valueNumeric, y17_M066_valueNumeric,
+y17_M068_valueNumeric,
+y17_M070_valueNumeric, y17_M078_valueNumeric,
+y17_M079_valueNumeric, y17_M080_valueNumeric,
+y17_M081_valueNumeric, y17_M082_valueNumeric,
+y17_M083_valueNumeric
 FROM staging_farms_table
 """)
 
